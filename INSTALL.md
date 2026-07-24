@@ -1,0 +1,143 @@
+# Installing Zirchron on macOS
+
+This is the detailed version of the installation instructions, including what
+to do when something does not go as expected. If you have installed Mac
+applications before, the short version is: *download the `.dmg`, drag Zirchron
+to Applications, and the first time you open it approve it in System Settings →
+Privacy & Security*.
+
+---
+
+## 1. Check that your Mac is compatible
+
+| Requirement | Value |
+|---|---|
+| macOS | 13 (Ventura) or later |
+| Processor | Apple Silicon — M1, M2, M3, M4 or M5 |
+| Disk space | about 500 MB |
+
+To check both at once: click the **** menu in the top-left corner of the
+screen → **About This Mac**.
+
+- The **Chip** line must start with "Apple M". If it says *Intel*, this build
+  will not run on your machine.
+- The **macOS** line must show 13 or higher.
+
+---
+
+## 2. Download
+
+Go to the [Releases](../../releases) page of this repository and download the
+file named `Zirchron-1.0.dmg` (about 97 MB). It will land in your **Downloads**
+folder.
+
+---
+
+## 3. Install
+
+A `.dmg` file is a *disk image*: opening it mounts a temporary virtual disk,
+much like plugging in a USB drive. Installing means copying the application out
+of it.
+
+1. **Double-click `Zirchron-1.0.dmg`.** A Finder window opens showing two
+   icons: the blue **Zirchron** crystal, and a shortcut to your **Applications**
+   folder.
+
+2. **Drag the Zirchron icon onto the Applications folder** and release. macOS
+   copies the application. This is the entire installation — Mac applications
+   are self-contained bundles, so there is no setup wizard, and nothing is
+   written elsewhere on your system.
+
+3. **Eject the disk image.** In the Finder sidebar, find *Zirchron 1.0* under
+   *Locations* and click the ⏏ symbol next to it. You can then delete the
+   `.dmg` from Downloads.
+
+> **Why not run it straight from the disk image?** It works, but the app would
+> be running from a temporary read-only volume that disappears when you eject
+> it. Copying to Applications is what makes it a permanent installation that
+> appears in Launchpad and Spotlight.
+
+---
+
+## 4. First launch
+
+Open Zirchron from **Launchpad**, from your **Applications** folder, or with
+Spotlight (⌘ Space, then type "Zirchron").
+
+The first time, macOS will **refuse to open it** and show a dialog saying that
+it cannot verify the app is free of malware, or that the developer cannot be
+identified.
+
+**This is expected and it is not a sign that something is wrong with the file.**
+Apple shows this for any application that has not been *notarized* — a paid
+service that requires an Apple Developer account. Zirchron is distributed
+directly by its author, unnotarized.
+
+To allow it to run:
+
+1. Click **Done** / **Cancel** to dismiss the warning.
+2. Open the  menu → **System Settings**.
+3. Go to **Privacy & Security** in the sidebar.
+4. Scroll down to the **Security** section. You will see a message:
+   *"Zirchron" was blocked to protect your Mac.*
+5. Click **Open Anyway**.
+6. Authenticate with your password or Touch ID if asked, then click **Open**
+   in the confirmation dialog.
+
+**You only need to do this once.** From then on, Zirchron opens like any other
+application, and you can right-click its Dock icon → *Options* → *Keep in Dock*.
+
+---
+
+## 5. Opening project files
+
+Zirchron saves your work as `.zirchron` files. After you have opened the
+application at least once, macOS learns the association and **double-clicking a
+`.zirchron` file opens it directly in Zirchron.**
+
+If a `.zirchron` file does not open with Zirchron, right-click it → **Open
+With** → *Zirchron*. To make it permanent, right-click → **Get Info** → under
+*Open with:* choose Zirchron → **Change All…**
+
+---
+
+## Troubleshooting
+
+**"The application is damaged and can't be opened."**
+This usually means the download was incomplete or the file was altered in
+transit. Delete it and download the `.dmg` again from the Releases page. If it
+persists, the quarantine attribute can be cleared by opening **Terminal** and
+running:
+
+```
+xattr -cr /Applications/Zirchron.app
+```
+
+**The app bounces in the Dock and quits.**
+Confirm you are on Apple Silicon and macOS 13 or later (step 1). This build
+does not include an Intel version.
+
+**The first launch takes several seconds.**
+Normal. On the very first run the app builds an internal font cache and macOS
+performs a one-time security scan of the bundle. Later launches are faster.
+
+**I do not see "Open Anyway" in Privacy & Security.**
+The entry only appears shortly after a blocked launch attempt. Try opening
+Zirchron once more, then go straight back to System Settings → Privacy &
+Security.
+
+---
+
+## Uninstalling
+
+Drag `Zirchron.app` from your Applications folder to the Trash. That removes
+the application. Your `.zirchron` project files are ordinary documents and are
+not affected — delete them yourself if you no longer need them.
+
+---
+
+## Getting help
+
+If none of the above resolves the problem, please
+[open an issue](../../issues) describing what you tried, including your macOS
+version and Mac model.
