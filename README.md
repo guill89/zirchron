@@ -24,17 +24,26 @@ Geociencias, UNAM (Juriquilla, México).
 | | |
 |---|---|
 | **macOS** | 13 (Ventura) or later |
-| **Processor** | Apple Silicon (M1, M2, M3, M4, M5) |
+| **Processor** | Apple Silicon **or** Intel — a separate download for each |
 | **Disk space** | ~500 MB |
 
-> ⚠️ This build does **not** run on Intel Macs. To check your machine: menu
->  → *About This Mac* → the *Chip* line should say "Apple M…".
+**Which file do I need?** Open the  menu → *About This Mac* and read the line
+just above the macOS version:
+
+| That line says | Download |
+|---|---|
+| **Chip:** Apple M1 / M2 / M3 / M4 / M5 | `Zirchron-1.0-arm64.dmg` |
+| **Processor:** Intel Core i5 / i7 / i9 / Xeon | `Zirchron-1.0-intel.dmg` |
+
+Both files are the same Zirchron, compiled for a different processor. You do
+not need Rosetta, and downloading the wrong one is harmless — macOS simply
+refuses to open it.
 
 **Steps**
 
-1. Go to the [**Releases**](../../releases) page and download
-   `Zirchron-1.0.dmg`.
-2. Double-click the downloaded `.dmg`. A window opens showing the **Zirchron**
+1. Go to the [**Releases**](../../releases) page and download the `.dmg` that
+   matches your processor (see the table above).
+2. Double-click the downloaded file. A window opens showing the **Zirchron**
    icon next to a shortcut to your **Applications** folder.
 3. **Drag the Zirchron icon onto the Applications folder.** That is the whole
    installation — macOS apps are self-contained, there is no installer wizard.

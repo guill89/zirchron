@@ -13,23 +13,36 @@ Privacy & Security*.
 | Requirement | Value |
 |---|---|
 | macOS | 13 (Ventura) or later |
-| Processor | Apple Silicon — M1, M2, M3, M4 or M5 |
+| Processor | Apple Silicon (M1–M5) **or** Intel — one download for each |
 | Disk space | about 500 MB |
 
 To check both at once: click the **** menu in the top-left corner of the
 screen → **About This Mac**.
 
-- The **Chip** line must start with "Apple M". If it says *Intel*, this build
-  will not run on your machine.
-- The **macOS** line must show 13 or higher.
+- The **macOS** line must show **13 or higher**. Zirchron does not run on
+  macOS 12 (Monterey) or earlier.
+- The **Chip** / **Processor** line tells you which file to download:
+
+| That line says | Your download |
+|---|---|
+| **Chip:** Apple M1, M2, M3, M4 or M5 | `Zirchron-1.0-arm64.dmg` |
+| **Processor:** Intel Core i5 / i7 / i9, or Xeon | `Zirchron-1.0-intel.dmg` |
+
+Each file holds the same application, compiled for that processor. You do not
+need Rosetta, and picking the wrong one cannot damage anything — macOS just
+refuses to open it, and you download the other.
 
 ---
 
 ## 2. Download
 
 Go to the [Releases](../../releases) page of this repository and download the
-file named `Zirchron-1.0.dmg` (about 97 MB). It will land in your **Downloads**
-folder.
+file that matches your processor (step 1):
+
+- **Apple Silicon** → `Zirchron-1.0-arm64.dmg` (about 97 MB)
+- **Intel** → `Zirchron-1.0-intel.dmg` (about 107 MB)
+
+It will land in your **Downloads** folder.
 
 ---
 
@@ -39,7 +52,7 @@ A `.dmg` file is a *disk image*: opening it mounts a temporary virtual disk,
 much like plugging in a USB drive. Installing means copying the application out
 of it.
 
-1. **Double-click `Zirchron-1.0.dmg`.** A Finder window opens showing two
+1. **Double-click the `.dmg` you downloaded.** A Finder window opens showing two
    icons: the blue **Zirchron** crystal, and a shortcut to your **Applications**
    folder.
 
@@ -113,9 +126,15 @@ running:
 xattr -cr /Applications/Zirchron.app
 ```
 
-**The app bounces in the Dock and quits.**
-Confirm you are on Apple Silicon and macOS 13 or later (step 1). This build
-does not include an Intel version.
+**The app bounces in the Dock and quits, or macOS says the application "cannot
+be opened on this Mac".**
+Almost always this means you downloaded the file built for the *other*
+processor. Go back to step 1, check the **Chip** / **Processor** line, and
+download the matching `.dmg`.
+
+**macOS says Zirchron "requires macOS 13 or later".**
+Exactly what it says: your system is too old for this build. Updating macOS is
+the only route — there is no version of Zirchron for macOS 12 or earlier.
 
 **The first launch takes several seconds.**
 Normal. On the very first run the app builds an internal font cache and macOS
