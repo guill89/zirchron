@@ -154,8 +154,8 @@ Please [open an issue](../../issues). The most useful reports include:
 
 ## Algorithms
 
-All calculations are implemented **from the published equations**, not derived
-from the source code of any other program. Key references: Jaffey et al. (1971);
+All calculations are implemented **from the published equations**. Key
+references: Jaffey et al. (1971);
 Ludwig (1998); York et al. (2004); Wendt & Carl (1991); Spencer & Kirkland
 (2015); Spencer et al. (2016); Söderlund et al. (2004); Bouvier et al. (2008);
 Griffin et al. (2002); Ferry & Watson (2007); Crisp et al. (2023); Sun &
