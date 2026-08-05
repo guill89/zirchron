@@ -17,7 +17,59 @@ Geociencias, UNAM (Juriquilla, México).
 
 ---
 
-## Download and install (macOS)
+## Download and install
+
+Zirchron runs on **Windows** and **macOS**. Go to the
+[**Releases**](../../releases) page and download the file for your system:
+
+| System | Download |
+|---|---|
+| **Windows** 10 / 11 (64-bit) | `Zirchron-1.0-windows-setup.exe` |
+| **macOS** 13+, Apple Silicon | `Zirchron-1.0-arm64.dmg` |
+| **macOS** 13+, Intel | `Zirchron-1.0-intel.dmg` |
+
+Step-by-step instructions for both systems, with troubleshooting, are in
+[INSTALL.md](INSTALL.md).
+
+---
+
+### Windows
+
+**Requirements**
+
+| | |
+|---|---|
+| **Windows** | 10 or 11, 64-bit |
+| **Processor** | any 64-bit Intel or AMD |
+| **Disk space** | ~350 MB |
+
+**Steps**
+
+1. Go to the [**Releases**](../../releases) page and download
+   `Zirchron-1.0-windows-setup.exe`.
+2. Double-click it. Windows will show a blue **"Windows protected your PC"**
+   screen — click **More info**, then **Run anyway** (see below).
+3. Follow the wizard: choose a language, accept the licence, confirm the
+   folder. Zirchron installs into your user folder and **does not ask for an
+   administrator password**. If you are an administrator and want it available
+   to everyone on the computer, you can change that in the wizard.
+4. Open Zirchron from the **Start menu** or from the desktop shortcut.
+
+**First launch — the SmartScreen warning**
+
+Windows shows that warning for any program not signed with a *code-signing
+certificate*, which is a paid commercial service. It is not a detection of
+anything harmful — SmartScreen is simply reporting that it does not recognise
+the publisher. Click **More info** → **Run anyway**. You only need to do this
+**once**, when you run the installer.
+
+If your antivirus quarantines the installer, that is the same phenomenon: some
+scanners flag any application bundled with PyInstaller. Restore the file and
+add an exception if needed.
+
+---
+
+### macOS
 
 **Requirements**
 
@@ -135,8 +187,9 @@ a starting point for the methods section of a manuscript.
 The workflow, in short: create a project → choose which variables you work with
 → paste or import your data → press **Calculate** → plot and compose.
 
-Projects are saved as `.zirchron` files. Once Zirchron has been opened at least
-once, double-clicking a `.zirchron` file opens it directly.
+Projects are saved as `.zirchron` files, and double-clicking one opens it
+directly — on Windows as soon as the installer finishes, on macOS once Zirchron
+has been opened at least one time.
 
 ---
 
@@ -146,7 +199,7 @@ Please [open an issue](../../issues). The most useful reports include:
 
 - what you did, what you expected, and what happened instead;
 - a screenshot if the problem is visual;
-- your macOS version and Mac model;
+- your system — Windows 10 or 11, or your macOS version and Mac model;
 - if the problem involves specific data, a `.zirchron` file that reproduces it
   (only if you are comfortable sharing it).
 

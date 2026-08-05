@@ -1,12 +1,139 @@
-# Installing Zirchron on macOS
+# Installing Zirchron
 
 This is the detailed version of the installation instructions, including what
-to do when something does not go as expected. If you have installed Mac
-applications before, the short version is: *download the `.dmg`, drag Zirchron
-to Applications, and the first time you open it approve it in System Settings →
-Privacy & Security*.
+to do when something does not go as expected. Jump to your system:
+
+- [**Windows**](#windows) — short version: *download the installer, click
+  through the SmartScreen warning, and follow the wizard*.
+- [**macOS**](#macos) — short version: *download the `.dmg`, drag Zirchron to
+  Applications, and the first time you open it approve it in System Settings →
+  Privacy & Security*.
 
 ---
+
+# Windows
+
+## 1. Check that your PC is compatible
+
+| Requirement | Value |
+|---|---|
+| Windows | 10 or 11, **64-bit** |
+| Processor | any 64-bit Intel or AMD |
+| Disk space | about 350 MB |
+
+To check: **Start → Settings → System → About**. Under *Device
+specifications*, the line **System type** must say *64-bit operating system*.
+Zirchron does not run on 32-bit Windows, nor on Windows 8.1 or earlier.
+
+There is a single Windows download — unlike macOS, you do not have to pick a
+processor.
+
+---
+
+## 2. Download
+
+Go to the [Releases](../../releases) page and download
+**`Zirchron-1.0-windows-setup.exe`** (about 81 MB). It will land in your
+**Downloads** folder.
+
+---
+
+## 3. Install
+
+1. **Double-click the downloaded installer.**
+
+2. **Windows will block it.** A blue full-screen panel appears saying
+   *"Windows protected your PC"*, with only a **Don't run** button visible.
+   Click **More info** — the text expands and a **Run anyway** button appears.
+   Click it. (Section 4 explains why this happens; it is expected.)
+
+3. **Choose the install mode.** The installer asks whether to install *for all
+   users* (requires an administrator password) or *for me only* (no password
+   needed). Either works — pick *for me only* if you are not an administrator
+   of the computer, which is the common case on shared laboratory machines.
+
+4. **Follow the wizard:** pick a language (English or Spanish), accept the
+   licence, and confirm the destination folder. You can leave every default.
+
+5. On the last page you can tick **Launch Zirchron**. Afterwards you will find
+   it in the **Start menu**, and on the desktop if you left the shortcut
+   option ticked.
+
+You can delete the installer from Downloads once it finishes.
+
+---
+
+## 4. First launch — the SmartScreen warning
+
+Windows shows *"Windows protected your PC"* for any program that is not signed
+with a **code-signing certificate** — a paid commercial service, renewed
+yearly. Zirchron is distributed directly by its author, unsigned.
+
+**This is not a detection of anything harmful.** SmartScreen is not saying the
+file is dangerous; it is saying it does not recognise the publisher, which is
+true of every new unsigned program. The wording is deliberately alarming
+because it is also what you would see for genuinely unknown software.
+
+To proceed: **More info** → **Run anyway**. You only need to do this once, for
+the installer — the installed application starts normally from then on.
+
+**If your antivirus quarantines the file** instead, that is a related
+phenomenon: some scanners flag anything bundled with PyInstaller (the tool that
+packages Python applications) because malware authors also use it. Restore the
+file from quarantine and add an exception for the Zirchron folder if your
+scanner keeps intercepting it.
+
+---
+
+## 5. Opening project files
+
+Zirchron saves your work as `.zirchron` files. The installer registers the file
+type, so **double-clicking a `.zirchron` file opens it in Zirchron
+immediately** — no need to open the application first.
+
+If a `.zirchron` file does not open with Zirchron, right-click it → **Open
+with** → **Choose another app** → select Zirchron and tick *Always use this
+app*.
+
+---
+
+## Troubleshooting (Windows)
+
+**I only see "Don't run" — there is no "Run anyway" button.**
+The button is hidden until you click **More info** on the left side of the
+SmartScreen panel. Click that first and the panel expands.
+
+**"This app can't run on your PC."**
+Your Windows is 32-bit. Zirchron is 64-bit only (the scientific libraries it
+uses are not published for 32-bit Windows). Check under Settings → System →
+About → *System type*.
+
+**The installer finishes but nothing opens.**
+Look for Zirchron in the Start menu and open it from there. If it still does
+not appear, reinstall and make sure you did not change the destination folder
+to a location you lack permission to write to.
+
+**The first launch takes several seconds.**
+Normal. On the very first run the application builds an internal font cache.
+Later launches are faster.
+
+**Antivirus removed the program after installing.**
+Add an exception for the installation folder (by default
+`C:\Users\<you>\AppData\Local\Programs\Zirchron`, or
+`C:\Program Files\Zirchron` if you installed for all users) and reinstall.
+
+---
+
+## Uninstalling (Windows)
+
+**Settings → Apps → Installed apps → Zirchron → Uninstall.** That removes the
+application and the `.zirchron` file association. Your `.zirchron` project
+files are ordinary documents and are not affected — delete them yourself if you
+no longer need them.
+
+---
+
+# macOS
 
 ## 1. Check that your Mac is compatible
 
@@ -114,7 +241,7 @@ With** → *Zirchron*. To make it permanent, right-click → **Get Info** → un
 
 ---
 
-## Troubleshooting
+## Troubleshooting (macOS)
 
 **"The application is damaged and can't be opened."**
 This usually means the download was incomplete or the file was altered in
@@ -147,7 +274,7 @@ Security.
 
 ---
 
-## Uninstalling
+## Uninstalling (macOS)
 
 Drag `Zirchron.app` from your Applications folder to the Trash. That removes
 the application. Your `.zirchron` project files are ordinary documents and are
@@ -155,8 +282,10 @@ not affected — delete them yourself if you no longer need them.
 
 ---
 
-## Getting help
+---
+
+# Getting help
 
 If none of the above resolves the problem, please
-[open an issue](../../issues) describing what you tried, including your macOS
-version and Mac model.
+[open an issue](../../issues) describing what you tried, and say which system
+you are on — Windows 10 or 11, or your macOS version and Mac model.
